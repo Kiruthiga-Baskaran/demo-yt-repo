@@ -1,20 +1,17 @@
 {
-  "name": "demo-yt-repo",
+  "name": "resume-parser-monorepo",
   "private": true,
-  "version": "0.1.0",
-  "type": "module",
+  "version": "1.0.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "concurrently \"npm run dev --workspace frontend\" \"npm run dev --workspace backend\"",
+    "build": "npm run build --workspace frontend",
+    "start": "npm run start --workspace backend"
   },
-  "dependencies": {
-    "pdfjs-dist": "^6.4.299",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0"
-  },
- "devDependencies": {
-    "vite": "^8.3.4",
-    "@vitejs/plugin-react": "^6.1.2"
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
